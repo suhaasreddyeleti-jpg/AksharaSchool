@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------- Contact form -> WhatsApp ---------- */
-  const WHATSAPP_NUMBER = '918309008948'; // +91 83090 08948 (no spaces/+)
+  const WHATSAPP_NUMBER = '918309008948';
   const form = document.getElementById('enquiryForm');
   const success = document.getElementById('formSuccess');
 
@@ -124,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const waURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 
-      // Show in-page success first
       form.style.opacity = '0';
       form.style.pointerEvents = 'none';
       setTimeout(() => {
@@ -132,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
         success.classList.add('show');
       }, 250);
 
-      // Open WhatsApp in a new tab
       window.open(waURL, '_blank');
     });
 
@@ -169,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const isTouchDevice = window.matchMedia('(hover: none)').matches;
 
   if (!isTouchDevice) {
-    /* Cursor glow */
     const glow = document.createElement('div');
     glow.className = 'cursor-glow';
     document.body.appendChild(glow);
@@ -193,7 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
       el.addEventListener('mouseleave', () => glow.classList.remove('big'));
     });
 
-    /* Magnetic buttons */
     document.querySelectorAll('.btn, .nav-cta, .back-to-top').forEach(btn => {
       btn.addEventListener('mousemove', (e) => {
         const r = btn.getBoundingClientRect();
@@ -204,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
     });
 
-    /* 3D tilt cards */
     document.querySelectorAll('.sl-card, .masonry-item').forEach(card => {
       card.classList.add('tilt-card');
       card.addEventListener('mousemove', (e) => {
@@ -217,7 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* Ripple on click */
   document.querySelectorAll('.btn, .nav-cta, .back-to-top').forEach(el => {
     el.addEventListener('click', (e) => {
       const r = el.getBoundingClientRect();
